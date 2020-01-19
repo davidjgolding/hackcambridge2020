@@ -1,0 +1,36 @@
+asgiref==3.2.3
+astroid==2.3.3
+awscli==1.17.5
+boto3==1.11.5
+botocore==1.14.5
+certifi==2019.11.28
+Click==7.0
+colorama==0.4.1
+cycler==0.10.0
+-e git+https://github.com/rocky/python-decompile3.git@071cd49de1f64e11b41691cbe8c9476818672d2c#egg=decompyle3
+Django==3.0.2
+docutils==0.15.2
+isort==4.3.21
+jmespath==0.9.4
+kiwisolver==1.1.0
+lazy-object-proxy==1.4.3
+matplotlib==3.1.2
+mccabe==0.6.1
+numpy==1.18.1
+pyasn1==0.4.8
+pylint==2.4.4
+pyparsing==2.4.6
+python-dateutil==2.8.1
+pytz==2019.3
+PyYAML==5.2
+rsa==3.4.2
+s3transfer==0.3.1
+six==1.13.0
+spark-parser==1.8.9
+sqlparse==0.3.0
+# Editable install with no version control (uncompyle6==3.6.1)
+-e /Users/davidgolding/Downloads/uncompyle6-3.6.1
+urllib3==1.25.7
+virtualenv==16.7.9
+wrapt==1.11.2
+xdis==4.2.2

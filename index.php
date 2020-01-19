@@ -106,7 +106,7 @@ $vals = explode(',', $message);
       </div>
 
     </div>
-    <div style='padding: 10px; z-index: -1; background-color: #111111; border: 5px; height: 80%; width: 1000px; position: absolute; top: 115px; margin:auto;'></div>
+    <div style='padding: 10px; z-index: -1; background-color: #111111; border: 5px; height: 80%; width: 1000px; position: absolute; top: 140px; margin:auto;'></div>
     </div>
 
     <!-- <script>

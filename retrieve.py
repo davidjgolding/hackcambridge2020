@@ -26,7 +26,7 @@ class Graph:
             vals[1] += 1
         else:
             vals[2] += 1
-        if ((i+1) < len(data[0]) and data[0][i] != data[0][i+1]):
+        if ((i+1) < len(data[0]) and data[0][i]==0 and data[0][i+1]==1):
             leave_room = leave_room + 1
       minutes = float((vals[2]*5)/60)
       on = float((vals[1]+vals[2])*5/60)
