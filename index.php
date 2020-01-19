@@ -37,32 +37,39 @@ $message = shell_exec('python3 retrieve.py');
     }
     count = (count+1) % 3;
   }
-  //
-  // function postData() {
-  //   $.ajax({
-  //       type: "POST",
-  //       url: "/retrieve.py",
-  //       data: {param: "s"},
-  //       success: callbackFunc
-  //   });
-  // }
-  //
-  // function callbackFunc(response) {
-  //   // do something with the response
-  //   console.log(response);
-  // }
-  //
-  // postData();
-
+  function test() {
+    $.ajax({
+            url: "submit.php",
+            type: "POST",
+            beforeSend: function() {
+                $("#submitStatus").text("Just processing your message...");
+                $("#submitStatus").removeClass("submitFailure");
+                $("#submitStatus").removeClass("submitSuccess");
+                $("#submitStatus").addClass("submitProcessing");
+                $("#submit").attr("disabled", true);
+            },
+            success: function(state) {
+                $("#submitStatus").text(
+                    "Your message was successfully submitted."
+                );
+                $("#submitStatus").removeClass("submitProcessing");
+                $("#submitStatus").removeClass("submitFailure");
+                $("#submitStatus").addClass("submitSuccess");
+                $("#formWithoutTitle").css("display", "none");
+                $("#formTitle").text("See you soon!");
+            }
+        });
+  }
 </script>
+
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">KNOCK KNOCK</a>
     <div style="width:100%;">
     </div>
-    <a class="navbar-brand" href="#" style="right:0; font-size:15px">Hi John</a>
+    <a class="navbar-brand" href="#" style="right:0; font-size:15px">Hi John!</a>
     </nav>
-
+    <p id="submitStatus"></p>
     <div class="outer">
       <div class="middle">
             <div id="contents" style='text-align:center'>
@@ -73,10 +80,15 @@ $message = shell_exec('python3 retrieve.py');
                 <img id="l_img4" src="TotalEnergy.png"  style="display: none;" width=550px/>
               <img id="l_right" src="assets/right.svg" height=30px onclick="light_switch()"/>
           </div>
+          <button id="mail" onclick="test()">Test</div>
         </div>
       </div>
+
     </div>
 
+    <!-- <script>
+      $("#mail").on("click",function(){alert("hi")})
+    </script> -->
 </body><!-- Footer -->
 <footer class="page-footer font-small special-color-dark pt-4" style="bottom:0; position:absolute; text-align:centre; width:100%">
   <!-- Copyright -->
