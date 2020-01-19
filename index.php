@@ -3,53 +3,84 @@
 <head>
   <link rel="stylesheet" type="text/css" href="stylesheet.css" />
   <meta charset="UTF-8" />
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
 </head>
+
+<?php
+$message = shell_exec('python3 retrieve.py');
+?>
+
 <script>
-  let light_total = false
+
+  let count = 1;
   function light_switch() {
-    if (!light_total) {
-      document.getElementById("l_img1").style.display='none';
-      document.getElementById("l_img2").style.display='inline';
-    } else {
+    if (count == 0) {
       document.getElementById("l_img1").style.display='inline';
       document.getElementById("l_img2").style.display='none';
+      document.getElementById("l_img3").style.display='none';
+      document.getElementById("l_img4").style.display='none';
+    } else if (count == 1) {
+      document.getElementById("l_img1").style.display='none';
+      document.getElementById("l_img2").style.display='inline';
+      document.getElementById("l_img3").style.display='none';
+      document.getElementById("l_img4").style.display='none';
+    } else if (count == 2) {
+      document.getElementById("l_img1").style.display='none';
+      document.getElementById("l_img2").style.display='none';
+      document.getElementById("l_img3").style.display='inline';
+      document.getElementById("l_img4").style.display='none';
+    } else if (count == 3) {
+      document.getElementById("l_img1").style.display='none';
+      document.getElementById("l_img2").style.display='none';
+      document.getElementById("l_img3").style.display='none';
+      document.getElementById("l_img4").style.display='inline';
     }
-    light_total = !light_total
-    console.log(light_total)
+    count = (count+1) % 3;
   }
+  //
+  // function postData() {
+  //   $.ajax({
+  //       type: "POST",
+  //       url: "/retrieve.py",
+  //       data: {param: "s"},
+  //       success: callbackFunc
+  //   });
+  // }
+  //
+  // function callbackFunc(response) {
+  //   // do something with the response
+  //   console.log(response);
+  // }
+  //
+  // postData();
+
 </script>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">KNOCK KNOCK</a>
+    <div style="width:100%;">
+    </div>
+    <a class="navbar-brand" href="#" style="right:0; font-size:15px">Hi John</a>
     </nav>
 
-    <div id="contents">
-      <div style="text-align: center">
-        <h3>Light Consumption</h1>
-        <div id="contents">
-          <img id="l_left" src="assets/left.svg" height=30px onclick="light_switch()"/>
-          <img id="l_img1" src="graph.png" />
-          <img id="l_img2" src="" style="display: none;"/>
-          <img id="l_right" src="assets/right.svg" height=30px onclick="light_switch()"/>
-        </div>
-      </div>
-
-
-      <div style="text-align: center">
-        <h3>Heat Consumption</h1>
-
-        <div id="contents">
-
-          <img src="graph.png" />
+    <div class="outer">
+      <div class="middle">
+            <div id="contents" style='text-align:center'>
+              <img id="l_left" src="assets/left.svg" height=30px onclick="light_switch()"/>
+                <img id="l_img1" src="LightEnergy.png" width=550px />
+                <img id="l_img2" src="HeatEnergy.png"  style="display: none;" width=550px/>
+                <img id="l_img3" src="ACEnergy.png"  style="display: none;" width=550px/>
+                <img id="l_img4" src="TotalEnergy.png"  style="display: none;" width=550px/>
+              <img id="l_right" src="assets/right.svg" height=30px onclick="light_switch()"/>
+          </div>
         </div>
       </div>
     </div>
 
-
 </body><!-- Footer -->
-<footer class="page-footer font-small special-color-dark pt-4">
+<footer class="page-footer font-small special-color-dark pt-4" style="bottom:0; position:absolute; text-align:centre; width:100%">
   <!-- Copyright -->
-  <div class="footer-copyright text-center py-3">2020 Hack Cambridge</div>
+  <div class="footer-copyright text-center py-3" style="text-align:centre">2020 Hack Cambridge</div>
   <!-- Copyright -->
 </footer>
 </html>
