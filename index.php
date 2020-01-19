@@ -8,7 +8,7 @@
 
 <?php
 $message = shell_exec('python3 retrieve.py');
-echo $message;
+$vals = explode(',', $message);
 ?>
 
 <script>
@@ -76,29 +76,33 @@ echo $message;
     <p id="submitStatus"></p>
     <div class="outer">
       <div class="middle">
-        <div style='padding: 10px; background-color: #FFFFFF; border: 5px; height: 80%; width: 1000px; margin:auto;'>
+        <div style='padding: 10px; background-color: #FFFFFF; border: 5px; height: 80%; width: 1000px; margin:auto; text-align:center'>
           <h2>Hi User.</h2>
-          <p>Let's check your usage for the past week.</p>
-          <ul>
-            <li>x% of your energy was wasted.</li>
+          <p>Let's check your usage for the past week!</p>
+          <?php
+            echo $vals[0] . " minutes of energy wasted\n";
+            echo "<br>";
+            echo $vals[1] . " minutes of lights on\n";
+            echo "<br>";
+            echo $vals[2] . " times you left the room\n"
 
+          ?>
 
-          </ul>
           <!-- <h4>Let's check your energy usage for the past week!</h3> -->
             <div id="contents" style='text-align:center;'>
               <img id="l_left" src="assets/left.svg" height=30px margin-right=10px onclick="light_switch()"/>
-                <img id="l_img1" src="LightEnergy.png" width=400px style="border-radius: 5px;"/>
-                <img id="l_img2" src="HeatEnergy.png"  style="border-radius: 5px;display: none;" width=400px/>
-                <img id="l_img3" src="ACEnergy.png" style="border-radius: 5px;display: none;" width=400px/>
-                <img id="l_img4" src="TotalEnergy.png"  style="border-radius: 5px;display: none;" width=400px/>
+                <img id="l_img1" src="light.png" width=400px style="border-radius: 5px;"/>
+                <img id="l_img2" src="heating.png"  style="border-radius: 5px;display: none;" width=400px/>
+                <img id="l_img3" src="ac.png" style="border-radius: 5px;display: none;" width=400px/>
+                <img id="l_img4" src="efficiency.png"  style="border-radius: 5px;display: none;" width=400px/>
               <img id="l_right" src="assets/right.svg" height=30px margin-left=10px onclick="light_switch()"/>
           </div>
-
-        <div>
-          <p>Want to turn your lights off now?</p>
-          <div id="contents" style='text-align:center; padding-top: 10px;'>
-            <button id="mail" onclick="test()" style="text-align:center; border: none; background-color: #FFFFFF; color: #111111; border-color: black; border-radius: 5px;">LIGHTS OUT</div>
           <div>
+            <p style="text-align: center">Want to save energy?</p>
+            <div id="contents" style='text-align:center; padding-top: 10px;'>
+              <button id="mail" class="btn info" onclick="test()" style="border: 1px; border-style: solid">Lights Out</button>
+            <div>
+        </div>
       </div>
 
     </div>
