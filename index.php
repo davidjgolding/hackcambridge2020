@@ -8,6 +8,7 @@
 
 <?php
 $message = shell_exec('python3 retrieve.py');
+echo $message;
 $vals = explode(',', $message);
 ?>
 
@@ -106,7 +107,7 @@ $vals = explode(',', $message);
       </div>
 
     </div>
-    <div style='padding: 10px; z-index: -1; background-color: #111111; border: 5px; height: 80%; width: 1000px; position: absolute; top: 140px; margin:auto;'></div>
+    <div style='padding: 10px; z-index: -1; background-color: #111111; border: 5px; height: 80%; width: 1000px; position: absolute; top: 120px; margin:auto;'></div>
     </div>
 
     <!-- <script>
