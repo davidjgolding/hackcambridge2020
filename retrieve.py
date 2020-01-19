@@ -173,14 +173,14 @@ class Graph:
     fg.savefig('TotalEnergy.png', bbox_inches='tight')
 
   def __init__(self):
-    self.getData()
+      pass
+      # self.getData()
 
 
 def main(test):
-    # g = Graph()
-    # g.getGraphs()
+    g = Graph()
+    g.getGraphs()
     return "succ"
 
 if __name__ == "__main__":
     x=main(None)
-    print("Hello World!")
