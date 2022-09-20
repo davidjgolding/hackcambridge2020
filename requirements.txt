@@ -30,7 +30,7 @@ spark-parser==1.8.9
 sqlparse==0.3.0
 # Editable install with no version control (uncompyle6==3.6.1)
 -e /Users/davidgolding/Downloads/uncompyle6-3.6.1
-urllib3==1.25.7
+urllib3==1.26.5
 virtualenv==16.7.9
 wrapt==1.11.2
 xdis==4.2.2
